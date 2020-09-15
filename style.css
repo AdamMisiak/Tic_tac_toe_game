@@ -49,7 +49,7 @@ body{
 
 .game-cell{
     background-color: rgb(204, 123, 57);
-    font-size: 80px;
+    font-size: 110px;
     width: 150px;
     height: 150px;
     display: flex;

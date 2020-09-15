@@ -13,6 +13,11 @@ function resetClicked(e){
     }
 }
 
+function winnerChecking(){
+    const top_left = console.log(cellDivs[0].innerText)
+}
+
+
 function cellClicked(e){
     const location = e.target.classList[1];
     if (e.target.innerText == '' && xMove == true){
@@ -25,6 +30,7 @@ function cellClicked(e){
         xMove = true;
         statusDiv.innerText = "X's move"
     }
+    winnerChecking()
 
 }
 
