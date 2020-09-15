@@ -3,3 +3,30 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    background: rgb(204, 123, 57);
+    margin: 30px;
+    padding: 30px;
+    border-radius: 30px;
+    width: 600px;
+    height: 600px;
+}
+
+.title{
+    text-align: center;
+    color: rgb(236, 240, 245);
+}
+
+.status-bar{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
