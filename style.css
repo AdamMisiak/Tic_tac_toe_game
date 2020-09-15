@@ -15,8 +15,6 @@ body{
     margin: 30px;
     padding: 30px;
     border-radius: 30px;
-    width: 600px;
-    height: 600px;
 }
 
 .title{
@@ -28,5 +26,34 @@ body{
     margin-top: 30px;
     display: flex;
     justify-content: space-around;
+    margin-bottom: 30px
 }
 
+
+.reset{
+    cursor: pointer;
+}
+
+.reset:hover{
+    color: skyblue;
+}
+
+
+.game-grid{
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    grid-gap: 8px;
+    background-color: rgb(197, 201, 204);
+    
+}
+
+.game-cell{
+    background-color: rgb(204, 123, 57);
+    font-size: 80px;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
