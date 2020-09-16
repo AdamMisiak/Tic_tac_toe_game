@@ -13,8 +13,37 @@ function resetClicked(e){
     }
 }
 
+function winnerPrinting(){
+    if (statusDiv.innerText == "O's move"){
+        statusDiv.innerText = "X won a game!";
+    } else if (statusDiv.innerText == "X's move"){
+        statusDiv.innerText = "O won a game!";
+    }
+   
+}
+
+
 function winnerChecking(){
-    const top_left = console.log(cellDivs[0].innerText)
+    const top_left = cellDivs[0].innerText;
+    const top_middle = cellDivs[1].innerText;
+    const top_right = cellDivs[2].innerText;
+    const middle_left = cellDivs[3].innerText;
+    const middle = cellDivs[4].innerText;
+    const middle_right = cellDivs[5].innerText;
+    const bottom_left = cellDivs[6].innerText;
+    const bottom_middle = cellDivs[7].innerText;
+    const bottom_right = cellDivs[8].innerText;
+
+
+    if (top_left == top_middle && top_middle == top_right && top_right != ''){
+        console.log('test1')
+        winnerPrinting();
+    } else if (middle_left == middle && middle == middle_right && middle != ''){
+        winnerPrinting();
+        console.log('test2')
+    } else{
+        console.log('nikt')
+    }
 }
 
 
