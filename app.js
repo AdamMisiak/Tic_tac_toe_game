@@ -35,13 +35,23 @@ function winnerChecking(){
     const bottom_right = cellDivs[8].innerText;
 
 
-    if (top_left == top_middle && top_middle == top_right && top_right != ''){
-        console.log('test1')
+    if (top_left == top_middle && top_middle == top_right && top_middle != ''){
         winnerPrinting();
     } else if (middle_left == middle && middle == middle_right && middle != ''){
         winnerPrinting();
-        console.log('test2')
-    } else{
+    } else if (bottom_left == bottom_middle && bottom_middle == bottom_right && bottom_middle != ''){
+        winnerPrinting();
+    } else if (top_left == middle_left && middle_left == bottom_left && middle_left != ''){
+        winnerPrinting();
+    } else if (top_middle == middle && middle == bottom_middle && middle != ''){
+        winnerPrinting();
+    } else if (top_right == middle_right && middle_right == bottom_right && middle_right != ''){
+        winnerPrinting();
+    } else if (top_left == middle && middle == bottom_right && middle != ''){
+        winnerPrinting();
+    } else if (top_right == middle && middle == bottom_left && middle != ''){
+        winnerPrinting();
+    } else {
         console.log('nikt')
     }
 }
