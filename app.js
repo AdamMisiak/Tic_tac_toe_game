@@ -11,17 +11,32 @@ function resetClicked(e){
     for (const cellDiv of cellDivs){
         cellDiv.innerText = ''
     }
+    statusDiv.innerText = "X's move"
+    cellDivs[0].className = 'game-cell'
+    cellDivs[1].className = 'game-cell'
+    cellDivs[2].className = 'game-cell'
+    cellDivs[3].className = 'game-cell'
+    cellDivs[4].className = 'game-cell'
+    cellDivs[5].className = 'game-cell'
+    cellDivs[6].className = 'game-cell'
+    cellDivs[7].className = 'game-cell'
+    cellDivs[8].className = 'game-cell'
 }
 
 function winnerPrinting(){
     if (statusDiv.innerText == "O's move"){
-        statusDiv.innerText = "X won a game!";
+        statusDiv.innerText = "X won the game!";
     } else if (statusDiv.innerText == "X's move"){
-        statusDiv.innerText = "O won a game!";
+        statusDiv.innerText = "O won the game!";
     }
    
 }
 
+function winnerHighlighting(cell_1, cell_2, cell_3){
+    cell_1.className = 'game-cell game-cell-winning';
+    cell_2.className = 'game-cell game-cell-winning';
+    cell_3.className = 'game-cell game-cell-winning';
+}
 
 function winnerChecking(){
     const top_left = cellDivs[0].innerText;
@@ -34,9 +49,9 @@ function winnerChecking(){
     const bottom_middle = cellDivs[7].innerText;
     const bottom_right = cellDivs[8].innerText;
 
-
     if (top_left == top_middle && top_middle == top_right && top_middle != ''){
         winnerPrinting();
+        winnerHighlighting(cellDivs[0], cellDivs[1], cellDivs[2])
     } else if (middle_left == middle && middle == middle_right && middle != ''){
         winnerPrinting();
     } else if (bottom_left == bottom_middle && bottom_middle == bottom_right && bottom_middle != ''){
@@ -51,11 +66,12 @@ function winnerChecking(){
         winnerPrinting();
     } else if (top_right == middle && middle == bottom_left && middle != ''){
         winnerPrinting();
-    } else {
-        console.log('nikt')
+    } else if (top_left != '' && top_middle != '' && top_right != '' && 
+               middle_left != '' && middle != '' && middle_right != '' &&
+               bottom_left != '' && bottom_middle != '' && bottom_right != ''){
+        statusDiv.innerText = "It is the draw!"
     }
 }
-
 
 function cellClicked(e){
     const location = e.target.classList[1];
