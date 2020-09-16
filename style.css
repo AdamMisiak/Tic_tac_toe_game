@@ -8,10 +8,11 @@ body{
     font-family: sans-serif;
     display: flex;
     justify-content: center;
+    color: rgb(241, 250, 238);;
 }
 
 .container{
-    background: rgb(204, 123, 57);
+    background: rgb(69, 123, 157);
     margin: 30px;
     padding: 30px;
     border-radius: 30px;
@@ -19,7 +20,7 @@ body{
 
 .title{
     text-align: center;
-    color: rgb(236, 240, 245);
+    color: rgb(241, 250, 238);
 }
 
 .status-bar{
@@ -29,13 +30,21 @@ body{
     margin-bottom: 30px
 }
 
+.o-move{
+    color: rgb(241, 250, 238);
+}
+
+.x-move{
+    color: rgb(29, 53, 87);
+}
+
 
 .reset{
     cursor: pointer;
 }
 
 .reset:hover{
-    color: skyblue;
+    color: rgb(231, 111, 81);
 }
 
 
@@ -43,12 +52,12 @@ body{
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
     grid-gap: 8px;
-    background-color: rgb(197, 201, 204);
+    background-color: rgb(230, 57, 70);
     
 }
 
 .game-cell{
-    background-color: rgb(204, 123, 57);
+    background-color: rgb(69, 123, 157);
     font-size: 110px;
     width: 150px;
     height: 150px;
@@ -60,6 +69,6 @@ body{
 
 
 .game-cell-winning{
-    color: rgb(255, 255, 255);
+    color: rgb(168, 218, 220);
     transition: 0.45s;
 }

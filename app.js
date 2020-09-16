@@ -54,18 +54,25 @@ function winnerChecking(){
         winnerHighlighting(cellDivs[0], cellDivs[1], cellDivs[2])
     } else if (middle_left == middle && middle == middle_right && middle != ''){
         winnerPrinting();
+        winnerHighlighting(cellDivs[3], cellDivs[4], cellDivs[5])
     } else if (bottom_left == bottom_middle && bottom_middle == bottom_right && bottom_middle != ''){
         winnerPrinting();
+        winnerHighlighting(cellDivs[6], cellDivs[7], cellDivs[8])
     } else if (top_left == middle_left && middle_left == bottom_left && middle_left != ''){
         winnerPrinting();
+        winnerHighlighting(cellDivs[0], cellDivs[3], cellDivs[6])
     } else if (top_middle == middle && middle == bottom_middle && middle != ''){
         winnerPrinting();
+        winnerHighlighting(cellDivs[1], cellDivs[4], cellDivs[7])
     } else if (top_right == middle_right && middle_right == bottom_right && middle_right != ''){
         winnerPrinting();
+        winnerHighlighting(cellDivs[2], cellDivs[5], cellDivs[8])
     } else if (top_left == middle && middle == bottom_right && middle != ''){
         winnerPrinting();
+        winnerHighlighting(cellDivs[0], cellDivs[4], cellDivs[8])
     } else if (top_right == middle && middle == bottom_left && middle != ''){
         winnerPrinting();
+        winnerHighlighting(cellDivs[2], cellDivs[4], cellDivs[6])
     } else if (top_left != '' && top_middle != '' && top_right != '' && 
                middle_left != '' && middle != '' && middle_right != '' &&
                bottom_left != '' && bottom_middle != '' && bottom_right != ''){
@@ -74,16 +81,18 @@ function winnerChecking(){
 }
 
 function cellClicked(e){
-    const location = e.target.classList[1];
     if (e.target.innerText == '' && xMove == true){
         e.target.innerText = 'X';
         xMove = false;
         statusDiv.innerText = "O's move"
+        statusDiv.setAttribute('class', 'status x-move')
 
     } else if (e.target.innerText == '' && xMove == false) {
         e.target.innerText = 'O';
         xMove = true;
         statusDiv.innerText = "X's move"
+        statusDiv.setAttribute('class', 'status o-move')
+        
     }
     winnerChecking()
 
