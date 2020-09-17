@@ -11,16 +11,16 @@ function resetClicked(e){
     for (const cellDiv of cellDivs){
         cellDiv.innerText = ''
     }
+    
+    for (var i = 0; i < cellDivs.length; i++) {
+        cellDivs[i].className = 'game-cell'
+    }
+
+    for (const cellDiv of cellDivs){
+        cellDiv.addEventListener('click', cellClicked)
+    }
+
     statusDiv.innerText = "X's move"
-    cellDivs[0].className = 'game-cell'
-    cellDivs[1].className = 'game-cell'
-    cellDivs[2].className = 'game-cell'
-    cellDivs[3].className = 'game-cell'
-    cellDivs[4].className = 'game-cell'
-    cellDivs[5].className = 'game-cell'
-    cellDivs[6].className = 'game-cell'
-    cellDivs[7].className = 'game-cell'
-    cellDivs[8].className = 'game-cell'
 }
 
 function winnerPrinting(){
@@ -36,6 +36,11 @@ function winnerHighlighting(cell_1, cell_2, cell_3){
     cell_1.className = 'game-cell game-cell-winning';
     cell_2.className = 'game-cell game-cell-winning';
     cell_3.className = 'game-cell game-cell-winning';
+
+
+    for (const cellDiv of cellDivs){
+        cellDiv.removeEventListener('click', cellClicked)
+    }
 }
 
 function winnerChecking(){

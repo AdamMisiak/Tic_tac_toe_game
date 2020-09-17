@@ -72,3 +72,16 @@ body{
     color: rgb(254, 250, 224);
     transition: 0.45s;
 }
+
+
+@media only screen and (max-width: 1024px){
+
+    .game-grid{
+        grid-gap: 6px;
+    }
+}
+
+
+@media only screen and (max-width: 540px){
+
+}
