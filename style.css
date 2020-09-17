@@ -30,7 +30,7 @@ body{
     margin-bottom: 30px
 }
 
-.reset-bar{
+.buttons-bar{
     margin-top: 30px;
     font-weight: bold;
     display: flex;
@@ -48,10 +48,19 @@ body{
 
 .reset{
     cursor: pointer;
+    background-color: rgb(40, 54, 24);
+    padding: 1em 1.5em;
+    border-radius: 30px;
 }
 
 .reset:hover{
     color: rgb(231, 111, 81);
+    transition: 0.1s;
+}
+
+.reset:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(2px);
 }
 
 

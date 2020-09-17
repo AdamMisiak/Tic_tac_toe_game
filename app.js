@@ -1,5 +1,5 @@
 const statusDiv = document.querySelector('.status');
-const resetDiv = document.querySelector('.reset');
+const resetDiv = document.querySelector('.reset-match');
 const cellDivs = document.querySelectorAll('.game-cell');
 
 
@@ -21,6 +21,7 @@ function resetClicked(e){
     }
 
     statusDiv.innerText = "X's move"
+    statusDiv.setAttribute('class', 'status')
 }
 
 function winnerPrinting(){
@@ -36,6 +37,8 @@ function winnerHighlighting(cell_1, cell_2, cell_3){
     cell_1.className = 'game-cell game-cell-winning';
     cell_2.className = 'game-cell game-cell-winning';
     cell_3.className = 'game-cell game-cell-winning';
+
+    statusDiv.setAttribute('class', 'status game-cell-winning')
 
 
     for (const cellDiv of cellDivs){
