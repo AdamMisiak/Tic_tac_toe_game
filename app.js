@@ -28,6 +28,13 @@ function resetMatchClicked(e){
 
     // WINNING STATUS STYLE DELETING
     statusText.setAttribute('class', 'status')
+
+    if (xPoints == 5 || oPoints == 5){
+        oPoints = 0;
+        xPoints = 0;
+        document.getElementById('x-score').innerText = xPoints
+        document.getElementById('o-score').innerText = oPoints
+    }
 }
 
 function resetGameClicked(e){
@@ -38,21 +45,31 @@ function resetGameClicked(e){
     resetMatchClicked(e)
 }
 
+
 function winnerPrinting(){
+
     if (statusText.innerText == "O's move"){
-        statusText.innerText = "X won the game!";
-        document.getElementById('x-score').innerText = ''
-        xPoints += 1
-        document.getElementById('x-score').innerText += xPoints
+        statusText.innerText = "X won the match!";
+        document.getElementById('x-score').innerText = '';
+        xPoints += 1;
+        document.getElementById('x-score').innerText += xPoints;
+
+        if (xPoints == 5){
+            statusText.innerText = "X won the game!";
+        }
 
     } else if (statusText.innerText == "X's move"){
-        statusText.innerText = "O won the game!";
-        document.getElementById('o-score').innerText = ''
-        oPoints += 1
-        document.getElementById('o-score').innerText += oPoints
+        statusText.innerText = "O won the match!";
+        document.getElementById('o-score').innerText = '';
+        oPoints += 1;
+        document.getElementById('o-score').innerText += oPoints;
+
+        if (oPoints == 5){
+            statusText.innerText = "O won the game!";
+        }
     }
-   
 }
+
 
 function winnerHighlighting(cell_1, cell_2, cell_3){
     cell_1.className = 'game-cell game-cell-winning';
@@ -123,7 +140,6 @@ function cellClicked(e){
         
     }
     winnerChecking()
-
 }
 
 document.getElementById('x-score').innerText = xPoints
