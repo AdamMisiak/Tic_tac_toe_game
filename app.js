@@ -1,5 +1,6 @@
 const statusText = document.querySelector('.status');
-const resetDiv = document.querySelector('.reset-match');
+const resetMatchDiv = document.querySelector('.reset-match');
+const resetGameDiv = document.querySelector('.reset-game');
 const cellDivs = document.querySelectorAll('.game-cell');
 
 
@@ -13,16 +14,28 @@ function resetMatchClicked(e){
         cellDiv.innerText = ''
     }
     
+    // WINNING CELLS STYLE DELETING
     for (var i = 0; i < cellDivs.length; i++) {
         cellDivs[i].className = 'game-cell'
     }
 
+    // ABILITY TO CLICK CELL ADDING
     for (const cellDiv of cellDivs){
         cellDiv.addEventListener('click', cellClicked)
     }
 
     statusText.innerText = "X's move"
+
+    // WINNING STATUS STYLE DELETING
     statusText.setAttribute('class', 'status')
+}
+
+function resetGameClicked(e){
+    oPoints = 0;
+    xPoints = 0;
+    document.getElementById('x-score').innerText = xPoints
+    document.getElementById('o-score').innerText = oPoints
+    resetMatchClicked(e)
 }
 
 function winnerPrinting(){
@@ -116,7 +129,8 @@ function cellClicked(e){
 document.getElementById('x-score').innerText = xPoints
 document.getElementById('o-score').innerText = oPoints
 
-resetDiv.addEventListener('click', resetMatchClicked)
+resetMatchDiv.addEventListener('click', resetMatchClicked)
+resetGameDiv.addEventListener('click', resetGameClicked)
 
 for (const cellDiv of cellDivs){
     cellDiv.addEventListener('click', cellClicked)
