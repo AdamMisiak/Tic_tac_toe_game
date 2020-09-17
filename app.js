@@ -35,6 +35,8 @@ function resetMatchClicked(e){
         document.getElementById('x-score').innerText = xPoints
         document.getElementById('o-score').innerText = oPoints
     }
+    document.getElementById('reset-match').style.color = 'rgb(188, 108, 37)';
+    document.getElementById('reset-game').style.color = 'rgb(188, 108, 37)';
 }
 
 function resetGameClicked(e){
@@ -42,6 +44,8 @@ function resetGameClicked(e){
     xPoints = 0;
     document.getElementById('x-score').innerText = xPoints
     document.getElementById('o-score').innerText = oPoints
+    document.getElementById('reset-match').style.color = 'rgb(188, 108, 37)';
+    document.getElementById('reset-game').style.color = 'rgb(188, 108, 37)';
     resetMatchClicked(e)
 }
 
@@ -53,9 +57,11 @@ function winnerPrinting(){
         document.getElementById('x-score').innerText = '';
         xPoints += 1;
         document.getElementById('x-score').innerText += xPoints;
+        document.getElementById('reset-match').style.color = 'rgb(254, 250, 224)';
 
         if (xPoints == 5){
             statusText.innerText = "X won the game!";
+            document.getElementById('reset-game').style.color = 'rgb(254, 250, 224)';
         }
 
     } else if (statusText.innerText == "X's move"){
@@ -63,9 +69,11 @@ function winnerPrinting(){
         document.getElementById('o-score').innerText = '';
         oPoints += 1;
         document.getElementById('o-score').innerText += oPoints;
+        document.getElementById('reset-match').style.color = 'rgb(254, 250, 224)';
 
         if (oPoints == 5){
             statusText.innerText = "O won the game!";
+            document.getElementById('reset-game').style.color = 'rgb(254, 250, 224)';
         }
     }
 }
