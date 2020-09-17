@@ -1,3 +1,5 @@
+
+/* GAME BOARD STYLES */
 *{
     margin: 0;
     padding: 0;
@@ -23,18 +25,14 @@ body{
     color: rgb(188, 108, 37);
 }
 
+
+/* STATUS BAR AND SCORE BAR STYLES */
 .status-bar{
     margin-top: 30px;
     display: flex;
     justify-content: space-around;
     margin-bottom: 30px
-}
 
-.buttons-bar{
-    margin-top: 30px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-around;
 }
 
 .o-move{
@@ -43,6 +41,25 @@ body{
 
 .x-move{
     color: rgb(40, 59, 85);
+}
+
+.x-score{
+    float:left;
+    display: flex;
+}
+
+.o-score{
+    float:right;
+    display: flex;
+}
+
+
+/* BUTTONS BAR STYLES */
+.buttons-bar{
+    margin-top: 30px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
 }
 
 
@@ -64,6 +81,7 @@ body{
 }
 
 
+/* GAME GRID AND CELL STYLES */
 .game-grid{
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
@@ -89,15 +107,3 @@ body{
     transition: 0.45s;
 }
 
-
-@media only screen and (max-width: 1024px){
-
-    .game-grid{
-        grid-gap: 6px;
-    }
-}
-
-
-@media only screen and (max-width: 540px){
-
-}

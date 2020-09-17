@@ -1,13 +1,14 @@
-const statusDiv = document.querySelector('.status');
+const statusText = document.querySelector('.status');
 const resetDiv = document.querySelector('.reset-match');
 const cellDivs = document.querySelectorAll('.game-cell');
 
 
-let gameIsLive = true;
 let xMove = true;
 
+var xPoints = 0;
+var oPoints = 0;
 
-function resetClicked(e){
+function resetMatchClicked(e){
     for (const cellDiv of cellDivs){
         cellDiv.innerText = ''
     }
@@ -20,15 +21,22 @@ function resetClicked(e){
         cellDiv.addEventListener('click', cellClicked)
     }
 
-    statusDiv.innerText = "X's move"
-    statusDiv.setAttribute('class', 'status')
+    statusText.innerText = "X's move"
+    statusText.setAttribute('class', 'status')
 }
 
 function winnerPrinting(){
-    if (statusDiv.innerText == "O's move"){
-        statusDiv.innerText = "X won the game!";
-    } else if (statusDiv.innerText == "X's move"){
-        statusDiv.innerText = "O won the game!";
+    if (statusText.innerText == "O's move"){
+        statusText.innerText = "X won the game!";
+        document.getElementById('x-score').innerText = ''
+        xPoints += 1
+        document.getElementById('x-score').innerText += xPoints
+
+    } else if (statusText.innerText == "X's move"){
+        statusText.innerText = "O won the game!";
+        document.getElementById('o-score').innerText = ''
+        oPoints += 1
+        document.getElementById('o-score').innerText += oPoints
     }
    
 }
@@ -38,8 +46,7 @@ function winnerHighlighting(cell_1, cell_2, cell_3){
     cell_2.className = 'game-cell game-cell-winning';
     cell_3.className = 'game-cell game-cell-winning';
 
-    statusDiv.setAttribute('class', 'status game-cell-winning')
-
+    statusText.setAttribute('class', 'status game-cell-winning')
 
     for (const cellDiv of cellDivs){
         cellDiv.removeEventListener('click', cellClicked)
@@ -84,7 +91,7 @@ function winnerChecking(){
     } else if (top_left != '' && top_middle != '' && top_right != '' && 
                middle_left != '' && middle != '' && middle_right != '' &&
                bottom_left != '' && bottom_middle != '' && bottom_right != ''){
-        statusDiv.innerText = "It is the draw!"
+            statusText.innerText = "It is the draw!"
     }
 }
 
@@ -92,22 +99,24 @@ function cellClicked(e){
     if (e.target.innerText == '' && xMove == true){
         e.target.innerText = 'X';
         xMove = false;
-        statusDiv.innerText = "O's move"
-        statusDiv.setAttribute('class', 'status x-move')
+        statusText.innerText = "O's move"
+        statusText.setAttribute('class', 'status x-move')
 
     } else if (e.target.innerText == '' && xMove == false) {
         e.target.innerText = 'O';
         xMove = true;
-        statusDiv.innerText = "X's move"
-        statusDiv.setAttribute('class', 'status o-move')
+        statusText.innerText = "X's move"
+        statusText.setAttribute('class', 'status o-move')
         
     }
     winnerChecking()
 
 }
 
+document.getElementById('x-score').innerText = xPoints
+document.getElementById('o-score').innerText = oPoints
 
-resetDiv.addEventListener('click', resetClicked)
+resetDiv.addEventListener('click', resetMatchClicked)
 
 for (const cellDiv of cellDivs){
     cellDiv.addEventListener('click', cellClicked)
