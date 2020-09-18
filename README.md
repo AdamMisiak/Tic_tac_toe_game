@@ -18,8 +18,8 @@ To run app in your browser:
 ```
 Tic_tac_toe_game/index.html
 ```
-"Reset match" button resets current game for 1 point.\
-"Reset game" button resets thw whole game.
+"Reset match" button resets the current game for 1 point.\
+"Reset game" button resets the whole game.
 
 ## Contact
 Created by Adam Misiak
